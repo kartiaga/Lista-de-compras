@@ -40,10 +40,19 @@ body {
 header {
   font-family: "Sora", sans-serif;
   font-size: 1.5rem;
+  color: var(--content-secondary);
+
+  display: flex;
+  justify-content: center;
+  gap: 0.4375rem;
+
+  margin-top: 1.5625rem;
 }
 
 h1 {
   font: var(--text-title);
+
+  margin-block: 1rem 2.75rem;
 }
 
 button {
@@ -51,6 +60,52 @@ button {
   color: var(--always-white);
 }
 
+main{
+  margin-top: 3.875rem;
+  max-width: 39.1875rem;
+
+  margin-inline: auto;
+}
+
+main > span {
+  color: var(--brand-color);
+  font: var(--text-link);
+
+  & > img {
+    width: 1rem;
+  }
+}
+
+form {
+  height: 2.75rem;
+  width: 100%;
+
+  display: grid;
+  grid-row: 1;
+  grid-template-columns: 1fr 10rem;
+  gap: 1rem;
+
+  & input,
+  & button {
+    border-radius: .75rem;
+  }
+}
+
 input {
   background-color: var(--background-secondary);
+
+  padding-left: 1.125rem;
+
+  border: solid 2px var(--border-primary);
+
+  font: 400 1rem/1.4 var(--font-family);
+}
+
+button {
+  padding-inline: 1.5rem;
+  border: none;
+
+  font: var(--text-label);
+  margin-left: auto;
+  
 }
