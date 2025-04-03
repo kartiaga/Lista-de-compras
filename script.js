@@ -30,3 +30,10 @@ function addItem(props) {
 
   dashboard.appendChild(newTask)
 }
+
+// Se clicar em um lugar que tem uma classe lixeira, remove o pai
+dashboard.addEventListener("click", (event) => {
+  if (event.target.classList.contains("trash")) {
+    event.target.parentElement.remove()
+  }
+})
