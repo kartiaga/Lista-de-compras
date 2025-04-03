@@ -110,7 +110,7 @@ button {
   
 }
 
-.dashboard {
+#dashboard {
   margin-top: 2.5rem;
   display: grid;
   gap: .75rem;
@@ -131,19 +131,36 @@ button {
   display: flex;
   align-items: center;
   gap: .75rem;
+
+  position: relative;
   
-  & > div {
+  & > input {
+    position: absolute;
+    left: 0;
+
+    width: 50%;
+    height: 100%;
+
+    cursor: pointer;
+    opacity: 0;
+  }
+
+  .checkbox {
     width: 1rem;
     height: 1rem;
     border: solid 1px var(--border-primary);
     border-radius: 6px;
   }
 
+
   & > span {
     margin-right: auto;
   }
 
-  & > img {
+  & > .trash {
+    background-image: url("assets/icons/trash.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
     width: 1rem;
     height: 1rem;
   }

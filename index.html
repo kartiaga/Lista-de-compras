@@ -24,22 +24,26 @@
     <h1>Compras da semana</h1>
 
     <form>
-      <input type="text" placeholder="Adicione um novo item" name="new-task" id="new-task" required>
-      <button type="submit">Adicionar item</button>
+      <input type="text" placeholder="Adicione um novo item" name="inputTask" id="inputTask" required>
+      <button type="submit" id="submit">Adicionar item</button>
     </form>
 
-    <div class="dashboard">
-      <div class="task">
+
+    <ul id="dashboard">
+      <li class="task">
+        <input type="checkbox">
         <div class="checkbox"></div>
-        <span>Pão de forma</span>
-        <img src="assets/icons/trash.svg" alt="">
-      </div>
-      <div class="task">
+        <span>Banana</span>
+        <div class="trash"></div>
+      </li>
+      <li class="task">
+        <input type="checkbox">
         <div class="checkbox"></div>
-        <span>Suco de laranja</span>
-        <img src="assets/icons/trash.svg" alt="">
-      </div>
-    </div>
+        <span>Pão de Forma</span>
+        <div class="trash"></div>
+      </li>
+    </ul>
+
 
   </main>
 
