@@ -210,6 +210,9 @@ button {
     margin-right: auto;
   }
 
+  & .delete {
+    cursor: pointer;
+  }
 }
 
 .hide {
