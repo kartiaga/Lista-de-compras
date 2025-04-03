@@ -9,6 +9,8 @@ form.addEventListener("submit", (event) => {
   event.preventDefault()
 
   addItem(inputTask.value)
+  // Apaga o que tem no input após adicionar
+  inputTask.value = ""
 })
 
 //adiciona uma div.task no dashboard
