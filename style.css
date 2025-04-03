@@ -108,6 +108,18 @@ button {
   font: var(--text-label);
   margin-left: auto;
   
+  &:hover {
+    background-color: var(--brand-color-hover);
+  }
+}
+
+#inputTask:hover {
+  border: solid 2px var(--border-hover);
+}
+
+#inputTask:focus {
+  border: solid 2px var(--brand-color-hover);
+  outline: none;
 }
 
 #dashboard {
@@ -133,18 +145,19 @@ button {
   gap: .75rem;
 
   position: relative;
+
   
-  & > input {
+  & > input[type="checkbox"] {
     position: absolute;
     left: 0;
-
+    
     width: 50%;
     height: 100%;
-
+    
     cursor: pointer;
     opacity: 0;
   }
-
+  
   .checkbox {
     width: 1rem;
     height: 1rem;
@@ -152,6 +165,15 @@ button {
     border-radius: 6px;
   }
 
+  
+  &:has(input:checked) .checkbox {
+    background-color: var(--brand-color);
+    border-color: var(--brand-color);
+  }
+  
+  &:hover .checkbox {
+    border-color: var(--border-hover);
+  }
 
   & > span {
     margin-right: auto;
