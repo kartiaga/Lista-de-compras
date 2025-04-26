@@ -7,10 +7,23 @@ const dashboard = document.querySelector("#dashboard")
 let items = JSON.parse(localStorage.getItem("tasks")) || []
 
 for (let i = 0; i < items.length; i++) {
-  renderItem(items[i].name, items[i].id); // só desenha
+  renderItem(items[i].name, items[i].id, items[i].checked); // só desenha
 }
 
-function renderItem(name, id) {
+console.log(items)
+
+function addTaskLocal(task, id) {
+  const newTask = {
+    id: id,
+    name: task,
+    checked: false
+  }
+
+  items.push(newTask)
+  localStorage.setItem("tasks", JSON.stringify(items))
+}
+
+function renderItem(name, id, checked) {
   const newTask = document.createElement("li")
   newTask.classList.add("task")
   newTask.dataset.id = id
@@ -22,8 +35,15 @@ function renderItem(name, id) {
 
   innerInput.setAttribute("type", "checkbox")
   innerCheckbox.classList.add("checkbox")
+  innerInput.setAttribute("id", "checkbox")
+  console.log(newTask)
   innerSpan.textContent = name
   innerTrash.classList.add("trash")
+
+  if (checked) {
+    innerInput.checked = true
+    innerCheckbox.classList.add("checked")
+  }
 
   newTask.append(innerInput, innerCheckbox, innerSpan, innerTrash)
 
@@ -31,15 +51,21 @@ function renderItem(name, id) {
 }
 
 
-function addTaskLocal(task, id) {
-  const newTask = {
-    id: id,
-    name: task,
-  }
+dashboard.addEventListener("click", (event) => {
+  if (event.target.type === "checkbox") {
+    const tarefaElement = event.target.parentElement
+    const idTarefa = parseInt(tarefaElement.dataset.id)
 
-  items.push(newTask)
-  localStorage.setItem("tasks", JSON.stringify(items))
-}
+    // Atualiza no array
+    const item = items.find(item => item.id === idTarefa)
+    if (item) {
+      item.checked = event.target.checked
+    }
+
+    // Atualiza no localStorage
+    localStorage.setItem("tasks", JSON.stringify(items))
+  }
+})
 
 
 form.addEventListener("submit", (event) => {
